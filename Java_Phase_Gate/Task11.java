@@ -1,4 +1,4 @@
-public class TaskTen {
+public class TaskEleven {
 public static void main(String[] args){
 
 int[] studentAges = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -8,11 +8,15 @@ getMaximumAndMinimumOf(studentAges);
 }
 
 
-public static void getMaximumAndMinimumOf(int[] arrayOfNumbers){
+public static void sortThis(int[] arrayOfNumbers){
 	int minimum = arrayOfNumbers[0];
 	int maximum = arrayOfNumbers[0];
+	int temp;
 	for(int index = 0; index < arrayOfNumbers.length; index++){
-		if(arrayOfNumbers[index] > maximum)
+		for(int counter = 0; counter < arrayOfNumbers.length - 1; counter++){
+
+		if(arrayOfNumbers[index] > arrayOfNumbers[counter])
+			arrayOfNumbers[counter] = arrayOfNumbers[index]
 			maximum = arrayOfNumbers[index];
 		else if (arrayOfNumbers[index] < minimum)
 			minimum = arrayOfNumbers[index];
@@ -32,6 +36,7 @@ public static void getMaximumAndMinimumOf(int[] arrayOfNumbers){
 
 
 }
+
 
 
 
