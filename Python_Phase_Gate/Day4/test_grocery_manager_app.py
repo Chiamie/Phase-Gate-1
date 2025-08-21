@@ -29,7 +29,7 @@ class TestRemoveThisGroceryFunction(unittest.TestCase):
 	def test_that_the_remove_this_grocery_function_raises_validation_if_input_is_empty(self):
 		self.assertRaises(ValueError, remove_this_grocery, "")
 	def test_that_the_remove_this_grocery_function_returns_correct_result(self):
-		result = add_this_grocery("yam")
-		self.assertEqual(result, 'Added successfully')
+		result = remove_this_grocery("yam")
+		self.assertEqual(result, 'Removed successfully')
 
 
