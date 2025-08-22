@@ -1,24 +1,32 @@
-def is_available(parking_lot):
-	for lot_row in parking_lot:
-		for slot in lot_row:
-			if slot == 0:
-				return "True"
-			else:
-				return "False"
+import mini_parking_system_functions
 
-		
-def enter_the_parking_lot(car):
-	if is_available(parking_lot) == True:
-		for lot_row in parking_lot:
-			for slot in lot_row:
-				if slot == 0:
-					slot = car
-		return "Parked Successfully"
-	else:
-		return "There is no available space in the park"
-				
-
-parking_lot = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
-available_space = is_available(parking_lot)
-car_to_park = 1
-print(enter_the_parking_lot(car_to_park))
+parking_lot = [[0, 1, 1, 1, 1], [1, 1, 1, 1, 1], [0, 1, 1, 1, 1], [1, 1, 0, 0, 1]]
+space_position = (3, 3)
+parking_lot_options = True
+while(parking_lot_options):
+	display_options = """
+		1. See if there is available space
+		2. See all available spaces
+		3. Enter a specific space position in the park lot
+		4. Enter the first space position from the left in the park lot
+		5. Leave the park lot
+		0. Exit
+		"""
+	print(display_options)
+	user_response = int(input("Choose an option: "))
+	match(user_response):
+		case 1:
+			print(mini_parking_system_functions.is_available(parking_lot))
+		case 2:
+			print(mini_parking_system_functions.display_all_available_spaces(parking_lot))
+		case 3:
+			number1, number2 = space_position
+			print(mini_parking_system_functions.enter_this_space_position(number1, number2, parking_lot))
+		case 4:
+			print(mini_parking_system_functions.enter_the_parking_lot(parking_lot))
+		case 5:
+			number1, number2 = space_position
+			print(mini_parking_system_functions.get_off_the_park(number1, number2, parking_lot))
+		case 0:
+			parking_lot_options = mini_parking_system_functions.exit()
+	
