@@ -3,8 +3,6 @@
 => Each of the row is the line for parking car while the column is the specific position where the car is parked in a specific line.
 => In the car park, an empty space is 0 while a space parked with a car is 1.
 => Create a function to check if there is space in the car park or not.
-=> Create a function that displays all the available spaces in the car park.
-=> A user can specify the specific position they want, and if the position is available: The car is parked; else: "This space is not available."
 => A car can enter the parking lot if there’s a free slot. The car enters at the first available space from the right. If there is no free space, it should display: "There is no vailable space."
 => Also a car can leave the parking lot by specifying the specific slot position.
 => There should also be a function that allows the user to exit the program.
