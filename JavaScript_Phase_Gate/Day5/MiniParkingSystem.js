@@ -15,15 +15,17 @@
 
 const prompt = require('prompt-sync')();
 
-let parkingLot = [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]];
-let parkingLotNumber = [1, 0];
+let parkingLot = [[1, 1, 1, 1, 1], [0, 1, 1, 1, 1], [0, 1, 1, 1, 1], [1, 1, 1, 1, 1]];
+let parkingLotNumber = [1, 1];
 
 let parkingLotOptions = true;
 while(parkingLotOptions) {
 	const displayOptions = `
 		1. See if there is available space
-		2. Enter the park lot
-		3. Leave the park lot
+		2. See all available spaces
+		3. Enter a specific space position in the park lot
+		4. Enter the park lot
+		5. Leave the park lot
 		0. Exit
 		`;
 	console.log(displayOptions);
@@ -33,8 +35,12 @@ while(parkingLotOptions) {
 			console.log(isAvailable(parkingLot)); 
 			break;
 		case '2':
-			console.log(enterTheParkingLot(parkingLot)); break;
+			console.log(displayAllAvailableSpaces(parkingLot)); break;
 		case '3':
+			console.log(enterThisSpacePosition(parkingLotNumber, parkingLot)); break;
+		case '4':
+			console.log(enterTheParkingLot(parkingLot)); break;
+		case '5':
 			console.log(getOffThePark(parkingLotNumber, parkingLot)); break;
 		case '0':
 			parkingLotOptions = isExit(); break;
@@ -57,6 +63,22 @@ function isAvailable(parkingLot){
 	return false;
 
 }
+
+function displayAllAvailableSpaces(parkingLot){
+	return parkingLot;
+}
+					
+function enterThisSpacePosition(parkingLotNumber, parkingLot){
+	if (parkingLot[0][1] == 0){
+		parkingLot[0][1] = 1;
+		return "Parked successfully";
+	} 		
+	else if (parkingLot[0][1] == 1){
+
+	return "This space is not available.";
+	}
+}
+
 function enterTheParkingLot(parkingLot){
 	if (isAvailable(parkingLot) == true){
 		for(let rowNumber = 0; rowNumber < parkingLot.length; rowNumber++){
