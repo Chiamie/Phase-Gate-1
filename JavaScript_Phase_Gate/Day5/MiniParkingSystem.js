@@ -1,3 +1,18 @@
+/**
+=> This program represents a car park as rows and columns.
+=> Each of the row is the line for parking car while the column is the specific position where the car is parked in a specific line.
+=> In the car park, an empty space is 0 while a space parked with a car is 1.
+=> Create a function to check if there is space in the car park or not.
+=> Create a function that displays all the available spaces in the car park.
+=> A user can specify the specific position they want, and if the position is available: The car is parked; else: "This space is not available."
+=> A car can enter the parking lot if there’s a free slot. The car enters at the first available space from the right. If there is no free space, it should display: "There is no vailable space."
+=> Also a car can leave the parking lot by specifying the specific slot position.
+=> There should also be a function that allows the user to exit the program.
+=> Arrange all the functions into cases to ensure easy navigation for the user.
+**/
+
+
+
 const prompt = require('prompt-sync')();
 
 let parkingLot = [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]];
@@ -7,10 +22,8 @@ let parkingLotOptions = true;
 while(parkingLotOptions) {
 	const displayOptions = `
 		1. See if there is available space
-		2. See all available spaces
-		3. See the first available space	 position
-		4. Enter the park lot
-		5. Leave the park lot
+		2. Enter the park lot
+		3. Leave the park lot
 		0. Exit
 		`;
 	console.log(displayOptions);
@@ -20,13 +33,8 @@ while(parkingLotOptions) {
 			console.log(isAvailable(parkingLot)); 
 			break;
 		case '2':
-			console.log(removeThisGrocery(nameOfGrocery1)); 
-			break;
-		case '3':
-			console.log(displayAllGroceries()); break;
-		case '4':
 			console.log(enterTheParkingLot(parkingLot)); break;
-		case '5':
+		case '3':
 			console.log(getOffThePark(parkingLotNumber, parkingLot)); break;
 		case '0':
 			parkingLotOptions = isExit(); break;
